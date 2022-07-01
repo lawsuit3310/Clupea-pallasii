@@ -12,9 +12,9 @@
             let heading = document.querySelector("#heading");
             heading.onclick = function(){
                 let num1 = confirm("is 8 right number?")? 8 : 0;
-                let num2 = parseInt(prompt("what is the second number?","9"));                let sum = num1 + num2;
-                document.write("<h1>"+ num1 + "+" + num2 + "=" + sum +"</h1>");
-                
+                let num2 = parseInt(prompt("what is the second number?","9"));
+                let sum = num1 + num2;
+                document.write(`<h1>${num1} +  ${num2} = ${sum}</h1>`);
             };
         </script>
     </body>

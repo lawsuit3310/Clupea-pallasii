@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+    </head>
+    <body>
+        <h1 id = "heading">자바스크립트</h1>
+        <p>위 텍스트를 클릭해보세요</p>
+        <!--use with javascript -->
+        <script defer = "defer">
+            let heading = document.querySelector("#heading");
+            heading.onclick = function(){
+                let name = window.prompt("이름을 입력하세요", "김중붕");
+                let score  = window.prompt("점수를 입력하세요");
+                if (isNaN(score)){
+                    window.alert("점수는 숫자로 입력해주세요");
+                }
+                else {
+                    score = parseInt(score)
+                    if(score > 100 || score < 0){
+                        window.alert("잘못된 값입니다.");
+                    }
+                    else if (score >= 80){
+                        window.alert(`${name}님 축하합니다. 점수 : ${score}점`);
+                    }
+                    else {
+                        window.alert(`${name}님 노력해봅시다. 점수 : ${score}점`);
+                    }
+                }
+            };
+        </script>
+    </body>
+</html>
