@@ -10,7 +10,15 @@
         <!--use with javascript -->
         <script defer = "defer">
             let heading = document.querySelector("#heading");
-            heading.onclick = function(){heading.style.color = "red"};
+            heading.onclick = function(){
+                if (window.confirm("정말 바꾸시겠습니까?")){
+                    heading.style.color = "red";
+                }
+                else{
+                    heading.style.color = "black";
+                }
+            };
+            
         </script>
     </body>
 </html>

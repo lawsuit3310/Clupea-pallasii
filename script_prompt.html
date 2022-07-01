@@ -10,7 +10,10 @@
         <!--use with javascript -->
         <script defer = "defer">
             let heading = document.querySelector("#heading");
-            heading.onclick = function(){heading.style.color = "red"};
+            heading.onclick = function(){
+                let name = prompt("이름을 입력하세요.","로봇고");
+                alert("Hello, "+ name+ "!");
+            };
         </script>
     </body>
 </html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+    </head>
+    <body>
+        <!--use with javascript -->
+        <script defer = "defer">
+            let count = window.prompt("입장객은 몇 명인가요?","37");
+            let txt = "<h2>자리 배치도</h2><table style = \"border: 1px solid black; border-collapse : collapse; font-size : 0.9em\">"
+            for (let i = 0; i < parseInt(count/5); i++){
+                txt += "<tr style = \"border: 1px solid black\">"
+                for (let j = 1; j <= 5; j++){
+                    txt += "<td style = \"padding : 5px; border: 1px solid black\">좌석 "+(j + i * 5)+"</td>"
+                }
+                txt += "</tr>"
+            }
+            txt += "<tr>"
+            for(let i = 1; i <= count%5; i++){
+                txt += `<td style = \"padding : 5px; border: 1px solid black\">좌석 ${(parseInt(count/5) *5  + i)}</td>`
+            }
+            txt += "</tr></table>"
+            document.write(txt);
+        </script>
+    </body>
+</html>
