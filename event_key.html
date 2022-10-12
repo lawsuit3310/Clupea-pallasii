@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .char{
+                background-image: url("image/character.png");
+                background-size: 200px 200px;
+                width: 200px;
+                height: 200px;
+                position: absolute;
+
+            }
+        </style>
+        <script defer = "defer">
+            document.addEventListener("DOMContentLoaded",function(){
+                const textarea = document.querySelector("textarea");
+                const h1 = document.querySelector("h1");
+                
+                textarea.addEventListener("keyup", function(){
+                    let len = textarea.value.length;
+                    h1.textContent = `글자 수 : ${len}`
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <h1>글자 수 :</h1>
+        <textarea cols="30" rows="3"></textarea>
+    </body>
+</html>
