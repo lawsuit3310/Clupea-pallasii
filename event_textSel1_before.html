@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      background-color: aqua;     text-align: center;
+    }
+    .paragraph {
+      font-size: 2rem;      font-weight: bold;
+      -webkit-text-stroke: 1px white;
+    }
+    #balloon {
+      font-size: 1.2rem;     cursor: pointer;
+      position: absolute;    left: 50%;
+      top: 50%;              text-align: center;
+      padding: 5px;          min-width: 60px;
+      color: #171717;      font-size: 12px;
+      background: white;   border-radius: 5px;
+      display: none;         opacity: 0;
+    }
+    #balloon.on {
+      opacity: 1;           display: block;    transition: 300ms all;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded",function(){
+      const balloon = document.querySelector("#balloon");
+      const paragraph = document.querySelector(".paragraph");
+
+      paragraph.addEventListener("selectstart",function(){
+        paragraph.addEventListener("mouseup",function(){
+          const selChar = window.getSelection().toString();
+            
+          balloon.textContent = selChar;
+
+          if (selChar === "")
+          {
+            balloon.classList.remove("on");
+            return;
+          }
+          balloon.classList.add("on");
+          balloon.style.left = `${event.clientX}px`
+          balloon.style.top = `${event.clientY}px`
+          
+        });
+      });
+
+      balloon.addEventListener("click",function(){
+          balloon.classList.remove("on");
+      });
+      
+    });
+  </script>
+</head>
+<body>
+  <p class="paragraph">Hello, this is a Javascript programming book.</p>
+  <div id="balloon"></div>
+</body>
+</html>
