@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=., initial-scale=1.0">
+  <title>Document</title>
+  <script>
+   document.addEventListener('DOMContentLoaded', () => {
+      let nowVal;             // 현재 입력값
+      let transConst = 10;    // 변환상수(select 선택에 따라 바뀜)
+      const input = document.querySelector('input');
+      const span = document.querySelector('span');
+      const select = document.querySelector('select');
+
+      // 익명함수로 calculate 함수 만듦.
+      const calculate = function(args){
+        // toFixed(2) => 소수점 2번째 자리까지 출력
+        span.textContent = args ? nowVal * transConst : '구하기'
+
+      }
+
+      input.addEventListener('keyup', (event) =>{
+        nowVal = event.currentTarget.value;
+        if (isNaN(nowVal))
+          calculate(false);
+        else
+          calculate(true);
+      });
+    
+      select.addEventListener('change', (event) =>{
+        const options = event.currentTarget.options;
+        const index = event.currentTarget.selectedIndex;
+        // 선택한 항목의 value값을 추출하여 변환상수
+        transConst = options[index].value;
+        calculate(true);
+      });
+    });      
+  </script>
+</head>
+<body>
+  <input type="text">cm = <span></span>
+  <select name="sel" id="">
+    <option value="10">mm</option>
+    <option value="0.01">m</option>
+    <option value="0.393701">inch</option>
+  </select>
+</body>
+</html>

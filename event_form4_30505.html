@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <input type = "checkbox" name = "timer" id = "timer"><label for="timer"> 타이머 활성화</label><br>
+    <h1 id = "counter"><h1>
+</body>
+<script defer = "defer">
+    const timer = document.querySelector("#timer");
+    const counter = document.querySelector("#counter");
+
+    let sec = 0;
+    timerPlug = null;
+
+    timerInterval = function() {
+        sec++;
+        counter.textContent = `${sec}초`
+    }
+
+    timer.addEventListener('click', function(){
+        if(timer.checked)
+            timerPlug = setInterval(timerInterval,1000);
+        else
+            clearInterval(timerPlug);
+    })
+
+</script>
+</html>

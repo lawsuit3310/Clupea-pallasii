@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 화살표 함수 사용함.
+    document.addEventListener('DOMContentLoaded', () => {
+      const select = document.querySelector('select');
+      const p = document.querySelector('p');
+
+
+      select.addEventListener('change', (event)=>{
+        const options = event.currentTarget.options;
+
+        const list = []
+
+        for (const op of options) {
+            if (op.selected)
+              list.push(op.textContent)  
+            
+        }
+
+        p.textContent = `선택: ${list.join(',')}` 
+      })
+     
+    });
+  </script>
+</head>
+<body>
+  <form action="">
+    <select name="food" multiple>
+      <option value="1">떡볶이</option>
+      <option value="2">순대</option>
+      <option value="3">오뎅</option>
+      <option value="4">튀김</option>
+    </select>
+  </form>
+  <p>선택: </p>
+</body>
+</html>
