@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>할 일 목록</h1>
+    <input id = "textField" type="text"> <button id = "button">추가하기</button>
+    <div id = "list"></div>
+</body>
+<script>
+    const doc = document
+    const btn = document.querySelector('#button')
+    const list = document.querySelector('#list')
+
+    btn.addEventListener('click', function(){
+        let textFieldValue = document.querySelector('#textField').value.trim()
+        
+        if (textFieldValue == null || textFieldValue.trim() == "")
+            return;
+
+        let div = document.createElement("div")
+        let input = document.createElement("input")
+        let span = document.createElement("span")
+        let submit = document.createElement("button")
+
+        div.appendChild(input)
+        div.appendChild(span)
+        div.appendChild(submit)
+
+        div.setAttribute("data-key",`${list.children.length}`)
+        input.setAttribute("type","checkbox")
+        span.textContent = textFieldValue
+        submit.textContent = "삭제하기"
+
+        input.addEventListener('change', function(){
+            span.style.textDecoration = input.checked ? "Line-through" : "none"
+        })
+        submit.addEventListener('click', function(){
+            list.removeChild(this.parentNode)
+        })
+
+        list.appendChild(div)
+
+    })
+    
+</script>
+</html>
