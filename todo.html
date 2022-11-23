@@ -13,19 +13,19 @@
 </body>
 <script>
     const doc = document
-    const btn = document.querySelector('#button')
-    const list = document.querySelector('#list')
+    const btn = doc.querySelector('#button')
+    const list = doc.querySelector('#list')
 
     btn.addEventListener('click', function(){
-        let textFieldValue = document.querySelector('#textField').value.trim()
+        let textFieldValue = doc.querySelector('#textField').value.trim()
         
         if (textFieldValue == null || textFieldValue.trim() == "")
             return;
 
-        let div = document.createElement("div")
-        let input = document.createElement("input")
-        let span = document.createElement("span")
-        let submit = document.createElement("button")
+        let div = doc.createElement("div")
+        let input = doc.createElement("input")
+        let span = doc.createElement("span")
+        let submit = doc.createElement("button")
 
         div.appendChild(input)
         div.appendChild(span)
