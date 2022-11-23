@@ -15,11 +15,12 @@
     const doc = document
     const btn = doc.querySelector('#button')
     const list = doc.querySelector('#list')
+    const textField = doc.querySelector('#textField')
 
     let keyIdx = 0
 
-    btn.addEventListener('click', function(){
-        let textFieldValue = doc.querySelector('#textField').value.trim()
+    addProc = function(){
+        let textFieldValue = textField.value.trim()
         
         if (textFieldValue == null || textFieldValue.trim() == "")
             return;
@@ -51,7 +52,16 @@
 
         keyIdx = parseInt(div.getAttribute("data-key")) + 1
 
-    })
+    }
+
+    btn.addEventListener('click', addProc)
     
+    textField.addEventListener('keydown',function(){
+        console.log(event.code)
+        if (event.code == "Enter")
+        {    
+            addProc()
+        }
+    })
 </script>
 </html>
