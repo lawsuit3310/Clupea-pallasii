@@ -16,6 +16,8 @@
     const btn = doc.querySelector('#button')
     const list = doc.querySelector('#list')
 
+    let keyIdx = 0
+
     btn.addEventListener('click', function(){
         let textFieldValue = doc.querySelector('#textField').value.trim()
         
@@ -31,7 +33,9 @@
         div.appendChild(span)
         div.appendChild(submit)
 
-        div.setAttribute("data-key",`${list.children.length}`)
+        
+
+        div.setAttribute("data-key",`${keyIdx}`)
         input.setAttribute("type","checkbox")
         span.textContent = textFieldValue
         submit.textContent = "삭제하기"
@@ -44,6 +48,8 @@
         })
 
         list.appendChild(div)
+
+        keyIdx = parseInt(div.getAttribute("data-key")) + 1
 
     })
     
